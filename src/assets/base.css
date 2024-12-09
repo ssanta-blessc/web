@@ -8,8 +8,8 @@
 }
 
 #app {
-    overflow-x: hidden;
     background-color: var(--background-100-color);
+    overflow-x: hidden;
     min-height: 100vh;
     height: 100%;
     font-family: "Roboto";
@@ -20,11 +20,13 @@
 
 .wrapper-base {
     min-width: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
 
     padding-left: 20px;
     padding-right: 20px;
+    padding-bottom: 20px;
 }
 
 .link {
@@ -44,11 +46,11 @@
 }
 
 .wrapper-1152 * {
-    max-width: 1152px;
+    max-width: 1152px !important;
 }
 
 .wrapper-1280 * {
-    max-width: 1280px;
+    max-width: 1280px !important;
 }
 
 body {
@@ -59,4 +61,11 @@ input {
     outline: none;
     border: none;
     background-color: transparent;
+}
+
+textarea {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    resize: none;
 }

@@ -4,27 +4,24 @@ export default {
     purge: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
     theme: {
         extend: {
-            backgroundImage: {
-                "accent-gradient": "linear-gradient(90deg, rgba(142,255,185,1) 0%, rgba(58,255,134,1) 100%);",
-                "image-none": "none",
-            },
             colors: {
                 primary: {
-                    100: "#191919",
+                    100: "#bd3634",
+                    200: "#cc3b39",
+                },
+                secondary: {
+                    100: "#E6DCB1",
+                    200: "#d4caa3",
+                    300: "#bfb791",
                 },
                 text: {
                     100: "#f1f1f1",
                     200: "#a7a7a7",
                     black: "#0f0f0f",
-                },
-                secondary: {
-                    100: "#242424",
-                    200: "#262626",
-                    300: "#333333",
+                    dark: "#343230",
                 },
                 accent: {
-                    100: "#3AFF86",
-                    200: "#7ff5ad",
+                    100: "#CEAC5C",
                 },
                 background: {
                     100: "#0c0e10",
