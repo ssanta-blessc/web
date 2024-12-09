@@ -1,3 +1,5 @@
+import Group from "@/views/Group.vue";
+import Home from "@/views/Home.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({
@@ -5,6 +7,7 @@ const router = createRouter({
     routes: [
         {
             path: "/",
+            component: Home,
         },
 
         {
@@ -13,6 +16,7 @@ const router = createRouter({
 
         {
             path: "/:groupJoinCode",
+            component: Group,
         },
 
         {
