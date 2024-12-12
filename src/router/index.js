@@ -22,6 +22,10 @@ const router = createRouter({
         {
             path: "/groups",
         },
+
+        {
+            path: "/:groupJoinCode/members",
+        },
     ],
 });
 
