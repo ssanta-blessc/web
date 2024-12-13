@@ -120,6 +120,9 @@ export default {
         if (!localStorage.has("jwt")) {
             window.location.href = VK_AUTH_URL;
         }
+        if (localStorage.has("fromGroup")) {
+            this.$router.push(localStorage.get("fromGroup"));
+        }
         this.getGroups();
     },
 };

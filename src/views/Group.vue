@@ -48,7 +48,11 @@ export default {
         };
     },
     created() {
+        if (localStorage.has("fromGroup")) {
+            localStorage.remove("fromGroup");
+        }
         if (!localStorage.has("jwt")) {
+            localStorage.add("fromGroup", this.$route.params.groupJoinCode);
             window.location.href = VK_AUTH_URL;
         }
         axios
