@@ -72,7 +72,7 @@ export default {
                 });
         },
         copyGroupJoinCode() {
-            navigator.clipboard.writeText(this.$refs.groupJoinCode.innerText);
+            navigator.clipboard.writeText("https://" + this.$refs.groupJoinCode.innerText);
         },
         removeGroupMember(vkid) {
             axios
