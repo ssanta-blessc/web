@@ -1,8 +1,8 @@
 <template>
     <div>
         <div v-if="title != ''">{{ title }}:</div>
-        <div class="w-full h-full cursor-text border duration-75 border-secondary-100 p-1 px-2 rounded-lg focus-within:bg-secondary-100/5">
-            <input type="text" class="w-full h-full cursor-default" :disabled="disabled" :value="value" :placeholder="placeholder" />
+        <div class="w-full h-full cursor-text border duration-300 border-text-100 p-1 px-2 rounded-lg focus-within:bg-text-dark/5">
+            <input @input="$emit('update:value', $event.target.value)" type="text" class="w-full h-full cursor-default placeholder:text-text-100/50" :disabled="disabled" :value="value" :placeholder="placeholder" />
         </div>
     </div>
 </template>

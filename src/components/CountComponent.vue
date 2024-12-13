@@ -9,7 +9,6 @@ export default {
     name: "NumberBadge",
     props: {
         number: {
-            type: Number,
             required: true,
         },
     },
