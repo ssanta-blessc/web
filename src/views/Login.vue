@@ -16,6 +16,7 @@ export default {
         }
         axios.get(API_URL + "auth/vk?code=" + this.$route.query.code).then((response) => {
             localStorage.add("jwt", response.data.data.info.token);
+            this.$router.push("/");
         });
     },
 };
