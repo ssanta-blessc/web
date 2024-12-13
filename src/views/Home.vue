@@ -43,7 +43,7 @@ import WrapperComponent from "@/components/WrapperComponent.vue";
                 <template v-slot:content>
                     <div class="[&>*+*]:mt-2">
                         <GroupElementComponent v-for="group in groups" :group-name="group.name" :join-code="group.joinCode" :admin="group.admin" />
-                        <ButtonComponent @click="$router.push('groups')" v-if="groups.length > 3" type="Secondary" title="Все группы" class="p-2" />
+                        <ButtonComponent @click="$router.push('groups')" v-if="groups.length >= 5" type="Secondary" title="Все группы" class="p-2" />
                         <ButtonComponent @click="$refs.createGroup.open()" type="Primary" title="Создать группу" class="p-2" />
                     </div>
                 </template>
@@ -107,7 +107,7 @@ export default {
                     .then((response) => {
                         let groups = response.data.data.info.groups;
                         this.groupsCount = groups.length;
-                        if (groups.length > 1) {
+                        if (groups.length >= 5) {
                             groups.pop();
                         }
                         this.groups = groups;
