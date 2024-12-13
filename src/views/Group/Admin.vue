@@ -25,7 +25,7 @@ import localStorage from "@/helpers/localStorage";
             <div class="my-5">
                 <div class="text-secondary-100">Нажмите что бы скопировать ссылку:</div>
                 <div @click="copyGroupJoinCode" ref="groupJoinCode" class="p-2 bg-secondary-100/20 rounded-lg flex items-center active:bg-secondary-100/50 duration-100">
-                    {{ APP_DOMAIN + "/Hwf1g6qGX75ijYgJ" }}
+                    {{ APP_DOMAIN + "/" + $route.params.groupJoinCode }}
                 </div>
             </div>
             <BlockComponent>
