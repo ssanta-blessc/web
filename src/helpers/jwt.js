@@ -17,7 +17,10 @@ export function getJwtPayload(token) {
 
     try {
         // Декодируем payload, который находится в средней части
-        const payload = parts[1];
+        let payload = parts[1]
+            .replace(/-/g, "+") // Заменить '-' на '+'
+            .replace(/_/g, "/") // Заменить '_' на '/'
+            .replace(/=/g, ""); // Удалить символы '=' (если есть);
 
         // Декодируем base64 строку в JSON
         const decodedPayload = atob(payload);
