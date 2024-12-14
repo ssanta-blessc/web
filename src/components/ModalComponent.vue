@@ -51,6 +51,9 @@ export default {
     beforeDestroy() {
         document.body.style.overflow = "";
     },
+    beforeUnmount() {
+        document.body.style.overflow = "";
+    },
 };
 </script>
 
