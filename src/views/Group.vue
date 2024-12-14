@@ -45,6 +45,7 @@ export default {
         return {
             group: null,
             isMember: false,
+            intervalId: null,
         };
     },
     created() {
@@ -55,43 +56,51 @@ export default {
             localStorage.add("fromGroup", this.$route.params.groupJoinCode);
             window.location.href = VK_AUTH_URL;
         }
-        axios
-            .get(API_URL + "group/" + this.$route.params.groupJoinCode, {
-                headers: {
-                    Authorization: localStorage.get("jwt"),
-                },
-            })
-            .then((response) => {
-                if (response.data.data.status == 403) {
-                    axios
-                        .post(
-                            API_URL + "group/" + this.$route.params.groupJoinCode + "/join",
-                            {},
-                            {
-                                headers: {
-                                    Authorization: localStorage.get("jwt"),
-                                },
-                            }
-                        )
-                        .then((response) => {
-                            if (response.data.data.status != 200) {
-                                this.$refs.groupClosed.open();
-                                return;
-                            }
-                            axios
-                                .get(API_URL + "group/" + this.$route.params.groupJoinCode, {
+
+        this.getGroup();
+        this.intervalId = setInterval(this.getGroup, 5000);
+    },
+
+    methods: {
+        getGroup() {
+            axios
+                .get(API_URL + "group/" + this.$route.params.groupJoinCode, {
+                    headers: {
+                        Authorization: localStorage.get("jwt"),
+                    },
+                })
+                .then((response) => {
+                    if (response.data.data.status == 403) {
+                        axios
+                            .post(
+                                API_URL + "group/" + this.$route.params.groupJoinCode + "/join",
+                                {},
+                                {
                                     headers: {
                                         Authorization: localStorage.get("jwt"),
                                     },
-                                })
-                                .then((response) => {
-                                    this.group = response.data.data.info.group;
-                                });
-                        });
-                } else if (response.data.data.status == 200) {
-                    this.group = response.data.data.info.group;
-                }
-            });
+                                }
+                            )
+                            .then((response) => {
+                                if (response.data.data.status != 200) {
+                                    this.$refs.groupClosed.open();
+                                    return;
+                                }
+                                axios
+                                    .get(API_URL + "group/" + this.$route.params.groupJoinCode, {
+                                        headers: {
+                                            Authorization: localStorage.get("jwt"),
+                                        },
+                                    })
+                                    .then((response) => {
+                                        this.group = response.data.data.info.group;
+                                    });
+                            });
+                    } else if (response.data.data.status == 200) {
+                        this.group = response.data.data.info.group;
+                    }
+                });
+        },
     },
 };
 </script>
