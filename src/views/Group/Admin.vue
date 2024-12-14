@@ -114,6 +114,9 @@ export default {
     beforeDestroy() {
         clearInterval(this.intervalId);
     },
+    beforeUnmount() {
+        clearInterval(this.intervalId);
+    },
 };
 </script>
 

@@ -60,6 +60,12 @@ export default {
         this.getGroup();
         this.intervalId = setInterval(this.getGroup, 5000);
     },
+    beforeDestroy() {
+        clearInterval(this.intervalId);
+    },
+    beforeUnmount() {
+        clearInterval(this.intervalId);
+    },
 
     methods: {
         getGroup() {
