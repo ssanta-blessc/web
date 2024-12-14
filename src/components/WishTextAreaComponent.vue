@@ -50,6 +50,8 @@ export default {
                     headers: {
                         Authorization: localStorage.get("jwt"),
                     },
+                }).then(()=>{
+                    this.$emit('saved')
                 })
             }
         }
