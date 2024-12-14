@@ -1,3 +1,4 @@
+import Desktop from "@/views/Desktop.vue";
 import Group from "@/views/Group.vue";
 import Members from "@/views/Group/Admin/Members.vue";
 import Groups from "@/views/Groups.vue";
@@ -36,6 +37,10 @@ const router = createRouter({
             path: "/:groupJoinCode/members",
             component: Members,
             name: "members",
+        },
+        {
+            path: "desktop",
+            component: Desktop,
         },
     ],
 });
