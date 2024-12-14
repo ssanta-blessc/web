@@ -39,7 +39,7 @@ const router = createRouter({
             name: "members",
         },
         {
-            path: "desktop",
+            path: "/desktop",
             component: Desktop,
         },
     ],
