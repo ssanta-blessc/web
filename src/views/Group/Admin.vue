@@ -10,11 +10,12 @@ import { API_URL, APP_DOMAIN } from "@/helpers/config";
 import { getJwtPayload } from "@/helpers/jwt";
 import axios from "axios";
 import localStorage from "@/helpers/localStorage";
+import NotificationComponent from "@/components/NotificationComponent.vue";
 </script>
 <template>
     <div class="h-full justify-between flex flex-col">
         <div class="top flex flex-col top flex-grow">
-            <WishTextAreaComponent placeholder="Ваше желание" class="h-full flex flex-col">
+            <WishTextAreaComponent placeholder="Ваше желание" @saved="$emit('wish-saved')" class="h-full flex flex-col">
                 <template v-slot:content>
                     <ButtonComponent type="Secondary" title="Сохранить" class="rounded-md" />
                 </template>
