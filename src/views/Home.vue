@@ -99,7 +99,7 @@ export default {
             if (!this.loadingGroups) {
                 this.loadingGroups = true;
                 axios
-                    .get(API_URL + "user/groups?from=0&to=4", {
+                    .get(API_URL + "user/groups?from=0&to=5", {
                         headers: {
                             Authorization: localStorage.get("jwt"),
                         },
