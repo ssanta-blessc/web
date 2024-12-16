@@ -1,6 +1,6 @@
 <template>
     <div v-if="isMounted" :class="{ '!bg-opacity-40': isAnimating, 'items-end': type == 'Bottom', 'items-center': type == 'Middle' }" class="min-w-[100vw] fixed inset-0 z-50 flex justify-center bg-black bg-opacity-0 duration-200" @click="handleOverlayClick">
-        <div v-if="type == 'Bottom'" class="bg-secondary-200 p-2 w-full rounded-t-xl mx-2 shadow-lg transform transition-transform duration-300 overflow-hidden" :class="{ 'translate-y-0': isAnimating, 'translate-y-full': !isAnimating }" @click.stop>
+        <div v-if="type == 'Bottom'" class="bg-secondary-200 p-2 w-full rounded-t-xl mx-2 shadow-lg transform transition-transform duration-500 overflow-hidden translate-y-[100%]" :class="{ '!translate-y-0 !duration-300': isAnimating }" @click.stop>
             <slot></slot>
         </div>
         <div v-if="type == 'Middle'" class="bg-secondary-200 p-2 w-full rounded-xl mx-2 shadow-lg transform transition-transform duration-500 ease-out overflow-hidden" :class="{ ' translate-x-[100vw]': !isAnimating }" @click.stop>
@@ -56,13 +56,3 @@ export default {
     },
 };
 </script>
-
-<style>
-/* Плавные переходы */
-.translate-y-full {
-    transform: translateY(100%);
-}
-.translate-y-0 {
-    transform: translateY(0);
-}
-</style>
